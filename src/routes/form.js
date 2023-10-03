@@ -3,7 +3,8 @@ const express = require('express');
 const router = express.Router();
 const { listEvents, createEvent } = require('../model/events.js');
 const { getSession } = require('../model/sessions.js');
-const { inputForm, layout } = require('../templates/form.js');
+const { inputForm } = require('../templates/form.js');
+const { layout } = require('../templates/template.js');
 
 router.get('/', (req, res) => {
   const events = listEvents(req.params.user_id);

@@ -5,7 +5,7 @@ const router = express.Router();
 const bcrypt = require('bcryptjs');
 const { getUserByEmail } = require('../model/user.js');
 const { createSession } = require('../model/session.js');
-const { layout } = require('../templates.js');
+const { layout } = require('../templates/template.js');
 
 router.get('/', (req, res) => {
   const title = 'Log in to your account';

@@ -4,7 +4,7 @@ const express = require('express');
 const router = express.Router();
 const { createUser } = require('../model/users.js');
 const { createSession } = require('../model/sessions.js');
-const { layout } = require('../templates.js');
+const { layout } = require('../templates/template.js');
 
 router.get('/', (req, res) => {
   const title = 'Sign Up';
