@@ -1,8 +1,8 @@
 // Templates
 
-module.exports = { Layout };
+module.exports = { layout };
 
-function Layout({ title, content }) {
+function layout({ title, content }) {
   return /*html*/ `
     <!doctype html>
     <html lang="en">
