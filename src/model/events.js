@@ -19,4 +19,12 @@ function createEvent(content, event_date, user_id) {
   return insert_event.get({ content, event_date, user_id });
 }
 
-module.exports = { listEvents, createEvent };
+const remove_event = db.prepare(/*sql*/ `
+  DELETE FROM events WHERE id = ?
+`);
+
+function deleteEvent(id) {
+  return remove_event.run(id);
+}
+
+module.exports = { listEvents, createEvent, deleteEvent };
