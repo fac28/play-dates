@@ -16,7 +16,6 @@ const homeRoutes = require('./routes/home');
 //Middleware
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(staticHandler);
-app.get("/", home.get);
 
 app.use((req, res, next) => {
   const time = new Date().toLocaleTimeString('en-GB');
