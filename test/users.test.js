@@ -20,9 +20,9 @@ test('can create new user from email and hash', () => {
   const expected = {
     id: 8,
     email: 'test@test.com',
-    hash: 'hash'
+    hash: 'hash',
   };
-  const newUser = model.createUser(expected.email, expected.hash);
+  model.createUser(expected.email, expected.hash);
   const actual = model.getUserByEmail('test@test.com');
   assert.deepEqual(
     [expected.id, expected.email, expected.hash],

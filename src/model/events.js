@@ -9,4 +9,14 @@ function listEvents(user_id) {
   return select_events.all(user_id);
 }
 
-module.exports = { listEvents };
+const insert_event = db.prepare(/*sql*/ `
+  INSERT INTO events (content, event_date, user_id)
+  VALUES ($content, $event_date, $user_id)
+  RETURNING id, content, event_date, created_at
+`);
+
+function createEvent(content, event_date, user_id) {
+  return insert_event.get({ content, event_date, user_id });
+}
+
+module.exports = { listEvents, createEvent };
