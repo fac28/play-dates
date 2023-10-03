@@ -7,7 +7,8 @@
     "dev": "DB_FILE=db.sqlite COOKIE_SECRET=abc nodemon src/index.js",
     "seed": "DB_FILE=db.sqlite node src/database/seed.js",
     "test": "DB_FILE=test.sqlite COOKIE_SECRET=abc node --test",
-    "start": "node src/index.js"
+    "start": "node src/index.js",
+    "lint": "eslint ."
   },
   "keywords": [],
   "author": "",
@@ -21,6 +22,9 @@
   "devDependencies": {
     "@flydotio/dockerfile": "^0.4.10",
     "eslint": "^8.50.0",
+    "eslint-config-kentcdodds": "^20.5.0",
+    "eslint-config-prettier": "^9.0.0",
+    "eslint-plugin-prettier": "^5.0.0",
     "nodemon": "^3.0.1",
     "prettier": "^3.0.3"
   }
