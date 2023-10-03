@@ -12,4 +12,21 @@ function createSession(user_id) {
   return id;
 }
 
-module.exports = { createSession };
+const select_session = db.prepare(/*sql*/ `
+  SELECT sid, user_id, expires_at
+  FROM sessions WHERE sid = ?
+`);
+
+function getSession(sid) {
+  return select_session.get(sid);
+}
+
+const delete_session = db.prepare(/*sql*/ `
+  DELETE FROM sessions WHERE sid = ?
+`);
+
+function removeSession(sid) {
+  return delete_session.run(sid);
+}
+
+module.exports = { createSession, getSession, removeSession };
