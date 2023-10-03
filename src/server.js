@@ -1,9 +1,14 @@
 //Server
-const express = require("express");
-const home = require("./routes/home.js");
+const express = require('express');
+const staticHandler = express.static('public');
+const bodyParser = require('body-parser');
 
-const server = express();
+const app = express();
 
-server.get("/", home.get);
+//Middleware
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(staticHandler);
 
-module.exports = server;
+//Routes
+
+module.exports = app;
