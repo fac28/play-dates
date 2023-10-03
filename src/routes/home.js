@@ -1,13 +1,13 @@
 // home routes
 
-const { Layout } = require("../templates.js");
+const { layout } = require('../templates.js');
 
 function get(req, res) {
-  const title = "Play Dates";
+  const title = 'Play Dates';
   const content = /*html*/ `
     <h1>Time to play with your dates</h1>
   `;
-  const body = Layout({ title, content });
+  const body = layout({ title, content });
   res.send(body);
 }
 
