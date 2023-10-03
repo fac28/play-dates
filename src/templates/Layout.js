@@ -2,7 +2,7 @@ const getDaysInMonth = (month, year) => {
   return new Date(year, month, 0).getDate();
 };
 
-function Layout(year, month, events) {
+function layout(year, month, events) {
   const daysOfMonth = Array.from(
     { length: getDaysInMonth(year, month) },
     (_, index) => index + 1
@@ -49,4 +49,4 @@ function Layout(year, month, events) {
         </html>`;
 }
 
-module.exports = Layout;
+module.exports = layout;

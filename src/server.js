@@ -11,6 +11,7 @@ const body = express.urlencoded({ extended: false });
 const cookies = cookieParser(process.env.COOKIE_SECRET);
 
 const app = express();
+const homeRoutes = require('./routes/home');
 
 //Middleware
 app.use(bodyParser.urlencoded({ extended: false }));
@@ -24,8 +25,8 @@ app.use((req, res, next) => {
 });
 app.use(cookies);
 
-//Routes
-app.get('/', home.get);
+//Routes (need refactor)
+app.use('/', homeRoutes);
 app.get('/signup', signup.get);
 app.post('/signup', body, signup.post);
 app.get('/calendar/:user_id', calendar.get);

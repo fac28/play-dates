@@ -1,14 +1,32 @@
-// home routes
+const express = require('express');
+// eslint-disable-next-line new-cap
+const router = express.Router();
 
-const { layout } = require('../templates.js');
+//Variables
+const layout = require('../templates/layout');
 
-function get(req, res) {
-  const title = 'Play Dates';
-  const content = /*html*/ `
-    <h1>Time to play with your dates</h1>
-  `;
-  const body = layout({ title, content });
-  res.send(body);
-}
+router.get('/', (req, res) => {
+  try {
+    const year = 2023;
+    const month = 3;
+    const events = [
+      {
+        id: 1,
+        day: 24,
+        title: 'Cook-a-thon',
+      },
+      {
+        id: 2,
+        day: 15,
+        title: 'Bike race',
+      },
+    ];
 
-module.exports = { get };
+    res.send(layout(year, month, events));
+  } catch (error) {
+    console.error('Error with route:', error.message);
+    throw error;
+  }
+});
+
+module.exports = router;
