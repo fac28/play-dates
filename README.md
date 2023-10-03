@@ -26,10 +26,10 @@ Install dependencies
   npm install
 ```
 
-<!-- Seed the database
+Seed the database
 ```bash
   npm run seed
-``` -->
+``` 
 
 Start the server
 
