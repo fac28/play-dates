@@ -29,7 +29,7 @@ Install dependencies
 Seed the database
 ```bash
   npm run seed
-``` 
+```
 
 Start the server
 
@@ -78,7 +78,7 @@ This app includes a database for a shared calendar. It has tables for users, ses
 
 </details>
 
-<details>
+<!-- <details>
 <summary><code>partners</code></summary>
 
 | column     | type     | constraints               |
@@ -86,11 +86,13 @@ This app includes a database for a shared calendar. It has tables for users, ses
 | user_id    | integer  | references users(id)      |
 | partner_id    | integer  | references users(id)      |
 | ||PRIMARY KEY (user_id, partners_id)|
-</details>
+</details> -->
 
 ## Usage
 
-to be added
+Start by registering an account. If you're already with us, just log in to see all the events you have added.
+
+Click on the left or right button to switch to view another month.
 
 ## Contributing
 
