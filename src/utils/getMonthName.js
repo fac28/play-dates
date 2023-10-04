@@ -1,6 +1,6 @@
 function getMonthName(monthIndex) {
   switch (monthIndex) {
-    case 0:
+    case 12:
       return 'January';
     case 1:
       return 'February';
