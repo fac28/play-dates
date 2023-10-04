@@ -57,7 +57,7 @@ const layout = (year, month, events) => {
             <form action="/form" method="GET" class="flex">
               <button type="submit" class="button nav-bar__button">+ date</button>
             </form>
-            <form class="flex">
+            <form action="/logout" method="POST" class="flex">
               <button class="button nav-bar__button">log out</button>
             </form>
           </div>
