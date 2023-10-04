@@ -51,13 +51,6 @@ const layout = (year, month, events) => {
                 <button class="button nav-bar__button">log out</button>
               </form>
             </div>
-
-            <form action="/form" method="GET" class="flex">
-              <button type="submit" class="button nav-bar__button">+ date</button>
-            </form>
-            <form action="/logout" method="POST" class="flex">
-              <button class="button nav-bar__button">log out</button>
-            </form>
           </div>
           <div class="calendar">
             ${daysOfMonth
@@ -66,10 +59,25 @@ const layout = (year, month, events) => {
                   <div class="flex-start-column">
                     <h3 class="calendar-day">${day}</h3>
                   </div>
-                `
+                  <div class="flex-wrap">
+                    ${events
+                      .map((event) => {
+                        if (event.day === day) {
+                          return /*html*/ `
+                            <form method="GET" action="/events/${event.id}">
+                              <button type="submit" class="button">${event.title}</button>
+                            </form>
+                          `;
+                        }
+                        return '';
+                      })
+                      .join('')}
+                  </div>
+                </div>
+              `
               )
               .join('')}
-            </div>
+          </div>
           </main>
         </div>
     </body>

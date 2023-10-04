@@ -33,7 +33,7 @@ router.post('/', (req, res) => {
         sameSite: 'lax',
         httpOnly: true,
       });
-      res.redirect(`/calendar/${user.id}`);
+      res.redirect(`/`);
     });
   }
 });
