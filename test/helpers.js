@@ -16,4 +16,16 @@ function resetdb() {
   seeddb();
 }
 
-module.exports = { resetdb };
+function countNumber() {
+  return db
+    .prepare(
+      /*sql*/ `
+    SELECT count(id) as num
+    FROM events
+  `
+    )
+    .get()['num'];
+}
+
+
+module.exports = { resetdb, countNumber };

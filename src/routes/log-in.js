@@ -1,14 +1,14 @@
-const bcrypt = require('bcryptjs');
+/* eslint-disable consistent-return */
 const express = require('express');
 // eslint-disable-next-line new-cap
 const router = express.Router();
-const { createUser } = require('../model/users.js');
-const { createSession } = require('../model/sessions.js');
+const bcrypt = require('bcryptjs');
+const { getUserByEmail } = require('../model/user.js');
+const { createSession } = require('../model/session.js');
 const { layout } = require('../templates/template.js');
 
 router.get('/', (req, res) => {
-  const title = 'Sign Up';
-  // TO-DO: refactor this part later
+  const title = 'Log in to your account';
   const content = /*html*/ `
     <div class="Cover">
       <h1>${title}</h1>
@@ -21,7 +21,7 @@ router.get('/', (req, res) => {
           <label for="password">password</label>
           <input type="password" id="password" name="password" required>
         </div>
-        <button class="Button">Sign up</button>
+        <button class="Button">Log in</button>
       </form>
     </div>
   `;
@@ -31,21 +31,24 @@ router.get('/', (req, res) => {
 
 router.post('/', (req, res) => {
   const { email, password } = req.body;
-
-  if (email && password) {
-    bcrypt.hash(password, 12).then((hash) => {
-      const user = createUser(email, hash);
+  const user = getUserByEmail(email);
+  if (!email || !password || !user) {
+    return res.status(400).send('<h1>Login failed</h1>');
+  }
+  bcrypt.compare(password, user.hash).then((match) => {
+    if (match === undefined) {
+      return res.status(400).send('<h1>Login failed</h1>');
+    } else {
       const session_id = createSession(user.id);
-
       res.cookie('sid', session_id, {
         signed: true,
-        maxAge: 1000 * 60 * 60 * 24 * 7,
+        maxAge: 1000 * 60 * 60 * 24 * 7, // 1 week
         sameSite: 'lax',
         httpOnly: true,
       });
-      res.redirect(`/calendar/${user.id}`);
-    });
-  }
+      res.redirect(`/`);
+    }
+  });
 });
 
 module.exports = router;
