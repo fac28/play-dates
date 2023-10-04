@@ -6,7 +6,7 @@ const events = require('../model/events');
 const layout = require('../templates/layout-main');
 const session = require('../model/sessions');
 
-router.get('/:month', (req, res) => {
+router.get('/:year/:month', (req, res) => {
   try {
     const currentDate = new Date();
 
