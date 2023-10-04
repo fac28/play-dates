@@ -29,7 +29,7 @@ router.post('/', (req, res) => {
         sameSite: 'lax',
         httpOnly: true,
       });
-      res.redirect(`/`);
+      res.redirect(`../`);
     }
   });
 });
