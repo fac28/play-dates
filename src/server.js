@@ -4,8 +4,6 @@ const staticHandler = express.static('public');
 const bodyParser = require('body-parser');
 const cookieParser = require('cookie-parser');
 
-const cookies = cookieParser(process.env.COOKIE_SECRET);
-
 const app = express();
 const homeRoutes = require('./routes/home');
 const formRoutes = require('./routes/form-route');
@@ -16,6 +14,7 @@ const logoutRoutes = require('./routes/logout');
 
 //Middleware
 app.use(bodyParser.urlencoded({ extended: false }));
+app.use(cookieParser('burger'));
 app.use(staticHandler);
 
 app.use((req, res, next) => {
@@ -23,7 +22,6 @@ app.use((req, res, next) => {
   console.log(`${time} ${req.method} ${req.url}`);
   next();
 });
-app.use(cookies);
 
 //Routes (need refactor)
 app.use('/', homeRoutes);
