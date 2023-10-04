@@ -11,6 +11,7 @@ const homeRoutes = require('./routes/home');
 const formRoutes = require('./routes/form-route');
 const signupRoutes = require('./routes/sign-up');
 const loginRoutes = require('./routes/log-in');
+const logoutRoutes = require('./routes/logout');
 
 //Middleware
 app.use(bodyParser.urlencoded({ extended: false }));
@@ -28,5 +29,6 @@ app.use('/', homeRoutes);
 app.use('/form', formRoutes);
 app.use('/signup', signupRoutes);
 app.use('/login', loginRoutes);
+app.use('/logout', logoutRoutes);
 
 module.exports = app;
