@@ -27,7 +27,11 @@
 \*------------------------------------*/
 
 :root {
-  --primary-light: #dad7cdff;
+  --primary-light: #FAF7F7;
+  --primary-dark: #F09696;
+  --high-light: #FDDB84;
+  --header-font:  'Vollkorn', serif;
+  --paragraph-font: 'Raleway', sans-serif;
 }
 
 
@@ -35,23 +39,135 @@
  Base
 \*------------------------------------*/
 
+body {
+  background: var(--primary-dark);
+  font-family: var(--paragraph-font);
+}
 
-
+h1 {
+  margin-left: 1rem;
+  font-family: var(--header-font);
+  font-weight: 700;
+}
 
 /*------------------------------------*\
  Universal
 \*------------------------------------*/
 
+.flex-wrap {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .5rem;
+}
 
+.flex {
+  display: flex;
+  justify-content: center;
+  gap: .5rem;
+}
 
+.flex-column {
+  display: flex;  
+  flex-direction: column;
+}
 
+.button {
+  all: unset;
+  background: var(--high-light);
+  border-radius: 12px;
+  padding: .5rem;
+  cursor: pointer;
+  text-align: center;
+  box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;}
 /*------------------------------------*\
- Components
+Components
 \*------------------------------------*/
 
+.header {
+  background: var(--primary-light);  
+  height: 4rem;
+  display: flex;
+  align-items: center;
+}
 
+.nav-bar {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  align-items: center;
+}
 
+.nav-bar h2 {
+  grid-row: 1 / 1;
+  grid-column: 1 / 1;
+  text-align: center;
+}
+
+.nav-bar div {
+  grid-column: 2 / 3;
+  grid-row: 1 / 1;
+}
+
+.nav-bar__month-button {
+  font-size: .95rem;
+  width: auto;
+}
+
+.nav-bar__button {
+  font-size: 1.25rem;
+  width: auto;
+  padding: .6rem .95rem
+}
+
+.calendar {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.calendar-day {
+  align-self: flex-start; 
+  margin: 0; 
+  padding: 0
+}
+
+.day-card {
+  background: var(--primary-light);
+  border-radius: 8px;
+  width: 90%;
+  max-width: 30rem;
+  padding: .5rem;
+  display: flex;
+  gap: 1rem;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}
 
 /*------------------------------------*\
  Media queries
 \*------------------------------------*/
+
+@media screen and (min-width : 1000px) {
+  .calendar {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr); 
+    grid-row: repeat(5, 1fr);
+    grid-gap: 20px; 
+    max-width: 90%; 
+    margin: 2rem auto;  
+  }
+
+  .day-card {
+    background: var(--primary-light);
+    border-radius: 8px;
+    min-width: 5%;
+    min-height: 90%;
+    overflow: auto;
+  }
+
+  .nav-bar {
+    max-width: 20rem;
+    margin: 1rem auto;
+  }
+}
