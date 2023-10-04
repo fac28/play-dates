@@ -33,8 +33,8 @@ const layout = (year, month, events) => {
                 <button class="button nav-bar__month-button">&blacktriangleright;</button>
               </form>
             </div>
-            <form class="flex">
-              <button class="button nav-bar__button">+ date</button>
+            <form action="/form" method="GET" class="flex">
+              <button type="submit" class="button nav-bar__button">+ date</button>
             </form>
             <form class="flex">
               <button class="button nav-bar__button">log out</button>

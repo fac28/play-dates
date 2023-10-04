@@ -71,6 +71,20 @@ h1 {
   flex-direction: column;
 }
 
+.center {
+  width: 80%;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.margin-top-sm {
+  margin-top: 1rem;
+}
+
+.margin-top-md {
+  margin-top: 2rem;
+}
+
 .button {
   all: unset;
   background: var(--high-light);

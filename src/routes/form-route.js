@@ -1,14 +1,18 @@
 const express = require('express');
+
 // eslint-disable-next-line new-cap
 const router = express.Router();
 const { listEvents, createEvent } = require('../model/events.js');
 const { getSession } = require('../model/sessions.js');
-const { inputForm } = require('../templates/form.js');
-const { layout } = require('../templates/template.js');
+const { inputForm } = require('../templates/form-template.js');
+
+//Dummy data
+const year = 2023;
+const month = 3;
 
 router.get('/', (req, res) => {
   const events = listEvents(req.params.user_id);
-  const body = layout({ title: 'add an event', content: inputForm(events) });
+  const body = inputForm(year, month, events);
   res.send(body);
 });
 
