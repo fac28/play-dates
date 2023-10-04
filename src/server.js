@@ -4,13 +4,13 @@ const staticHandler = express.static('public');
 const bodyParser = require('body-parser');
 const cookieParser = require('cookie-parser');
 
-// const body = express.urlencoded({ extended: false });
 const cookies = cookieParser(process.env.COOKIE_SECRET);
 
 const app = express();
 const homeRoutes = require('./routes/home');
 const formRoutes = require('./routes/form');
 const signupRoutes = require('./routes/sign-up');
+const monthRoutes = require('./routes/month');
 
 //Middleware
 app.use(bodyParser.urlencoded({ extended: false }));
@@ -27,6 +27,6 @@ app.use(cookies);
 app.use('/', homeRoutes);
 app.use('/form', formRoutes);
 app.use('/signup', signupRoutes);
-// server.post('/calendar', calendar.post);
+app.use('/month', monthRoutes);
 
 module.exports = app;

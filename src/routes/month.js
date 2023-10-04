@@ -6,13 +6,12 @@ const events = require('../model/events');
 const layout = require('../templates/layout-main');
 const session = require('../model/sessions');
 
-router.get('/', (req, res) => {
+router.get('/:month', (req, res) => {
   try {
     const currentDate = new Date();
-    const currentYear = currentDate.getFullYear();
-    let year = currentYear;
-    const currentMonth = currentDate.getMonth();
-    let month = currentMonth;
+
+    const year = parseInt(req.params.year) || currentDate.getFullYear();
+    const month = parseInt(req.params.month) || currentDate.getMonth();
 
     const sid = req.signedCookies.sid;
     const active_session = session.getSession(sid);
