@@ -8,7 +8,6 @@ const layout = (year, month, events) => {
     (_, index) => index + 1
   );
 
-  console.log(month);
   let nextMonth = `/month/${month + 1}`;
   if (month > 11) {
     nextMonth = `/month/${month - 11}`;
@@ -61,7 +60,7 @@ const layout = (year, month, events) => {
                 <div class="flex-wrap">
                   ${events
                     .map((event) => {
-                      if (event.day == day) {
+                      if (event.day === day) {
                         return /*html*/ `
                           <form method="GET" action="/events/${event.id}">
                             <button type="submit" class="button">${event.content}</button>
@@ -71,7 +70,7 @@ const layout = (year, month, events) => {
                       return '';
                     })
                     .join('')}
-                </div>  
+                </div>
               </div>
             `
             )
