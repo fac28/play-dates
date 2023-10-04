@@ -11,6 +11,7 @@ const app = express();
 const homeRoutes = require('./routes/home');
 const formRoutes = require('./routes/form');
 const signupRoutes = require('./routes/sign-up');
+const loginRoutes = require('./routes/log-in');
 
 //Middleware
 app.use(bodyParser.urlencoded({ extended: false }));
@@ -27,6 +28,6 @@ app.use(cookies);
 app.use('/', homeRoutes);
 app.use('/form', formRoutes);
 app.use('/signup', signupRoutes);
-// server.post('/calendar', calendar.post);
+app.use('/login', loginRoutes);
 
 module.exports = app;
