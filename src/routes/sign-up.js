@@ -1,8 +1,9 @@
+/* eslint-disable consistent-return */
 const bcrypt = require('bcryptjs');
 const express = require('express');
 // eslint-disable-next-line new-cap
 const router = express.Router();
-const { createUser } = require('../model/users.js');
+const { createUser, getUserByEmail } = require('../model/users.js');
 const { createSession } = require('../model/sessions.js');
 
 router.get('/', (req, res) => {
@@ -31,6 +32,13 @@ router.post('/', (req, res) => {
   const { email, password } = req.body;
 
   if (email && password) {
+    const existingUser = getUserByEmail(email);
+
+    if (existingUser) {
+      // User already exists, redirect to login page
+      return res.redirect('/login');
+    }
+
     bcrypt.hash(password, 12).then((hash) => {
       const user = createUser(email, hash);
       const session_id = createSession(user.id);

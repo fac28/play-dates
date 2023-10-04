@@ -12,8 +12,8 @@ function createUser(email, hash) {
 }
 
 const select_user_by_email = db.prepare(/*sql*/ `
-  SELECT id, email, hash, created_at 
-  FROM users 
+  SELECT id, email, hash, created_at
+  FROM users
   WHERE email = ?
 `);
 
