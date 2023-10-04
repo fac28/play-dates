@@ -7,8 +7,18 @@ const layout = (year, month, events) => {
     (_, index) => index + 1
   );
 
-  const nextMonth = `/month/${month + 1}`;
-  const lastMonth = `/month/${month - 1}`;
+  // debatable thresholds
+  if (month < 11) {
+    const nextMonth = `/month/${month + 1}`;
+  } else {
+    const nextMonth = `/month/${month - 11}`;
+  }
+
+  if (month > 0) {
+    const lastMonth = `/month/${month - 1}`;
+  } else {
+    const lastMonth = `/month/${month + 11}`;
+  }
 
   return /*html*/ `
     <!doctype html>
@@ -16,8 +26,8 @@ const layout = (year, month, events) => {
       <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="normalize.css">
-        <link rel="stylesheet" href="styles.css">
+        <link rel="stylesheet" href="../normalize.css">
+        <link rel="stylesheet" href="../styles.css">
         <link href="https://fonts.googleapis.com/css?family=Raleway:500|Vollkorn:400i" rel="stylesheet">
         <title>Play Dates</title>    
       </head>
