@@ -10,9 +10,9 @@ router.get('/', (req, res) => {
   try {
     const currentDate = new Date();
     const currentYear = currentDate.getFullYear();
-    let year = currentYear;
+    const year = currentYear;
     const currentMonth = currentDate.getMonth();
-    let month = currentMonth;
+    const month = currentMonth;
 
     const sid = req.signedCookies.sid;
     const active_session = session.getSession(sid);

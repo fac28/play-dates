@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 const getDaysInMonth = require('../utils/getDaysInMonth');
 const getMonthName = require('../utils/getMonthName');
 
@@ -8,16 +9,13 @@ const layout = (year, month, events) => {
   );
 
   // debatable thresholds
-  if (month < 11) {
-    const nextMonth = `/month/${month + 1}`;
-  } else {
-    const nextMonth = `/month/${month - 11}`;
+  let nextMonth = `/month/${month + 1}`;
+  if (month >= 11) {
+    nextMonth = `/month/${month - 11}`;
   }
-
-  if (month > 0) {
-    const lastMonth = `/month/${month - 1}`;
-  } else {
-    const lastMonth = `/month/${month + 11}`;
+  let lastMonth = `/month/${month - 1}`;
+  if (month <= 0) {
+    lastMonth = `/month/${month + 11}`;
   }
 
   return /*html*/ `
@@ -29,7 +27,7 @@ const layout = (year, month, events) => {
         <link rel="stylesheet" href="../normalize.css">
         <link rel="stylesheet" href="../styles.css">
         <link href="https://fonts.googleapis.com/css?family=Raleway:500|Vollkorn:400i" rel="stylesheet">
-        <title>Play Dates</title>    
+        <title>Play Dates</title>
       </head>
       <body>
           <header class="header">
@@ -69,8 +67,8 @@ const layout = (year, month, events) => {
                     <h3 class="calendar-day">${day}</h3>
                   </div>
                 `
-                )
-                .join('')}
+              )
+              .join('')}
             </div>
           </main>
         </div>
