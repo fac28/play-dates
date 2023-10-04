@@ -6,9 +6,11 @@ const { listEvents, createEvent } = require('../model/events.js');
 const { getSession } = require('../model/sessions.js');
 const { inputForm } = require('../templates/form-template.js');
 
-//Dummy data
-const year = 2023;
-const month = 3;
+const currentDate = new Date();
+const currentYear = currentDate.getFullYear();
+const year = currentYear;
+const currentMonth = currentDate.getMonth();
+const month = currentMonth;
 
 router.get('/', (req, res) => {
   const events = listEvents(req.params.user_id);
