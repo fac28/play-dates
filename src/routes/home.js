@@ -3,7 +3,7 @@ const express = require('express');
 const router = express.Router();
 
 //Variables
-const layout = require('../templates/layout');
+const layout = require('../templates/layout-main');
 
 router.get('/', (req, res) => {
   try {

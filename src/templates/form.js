@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 function inputForm(events) {
   return /*html*/ `
   <div class="Cover">
