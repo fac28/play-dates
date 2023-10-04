@@ -24,8 +24,7 @@ function countNumber() {
     FROM events
   `
     )
-    .get()['num'];
+    .get().num;
 }
-
 
 module.exports = { resetdb, countNumber };

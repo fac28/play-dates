@@ -3,9 +3,9 @@ const express = require('express');
 // eslint-disable-next-line new-cap
 const router = express.Router();
 const bcrypt = require('bcryptjs');
-const { getUserByEmail } = require('../model/user.js');
-const { createSession } = require('../model/session.js');
-const { layout } = require('../templates/template.js');
+const { getUserByEmail } = require('../model/users.js');
+const { createSession } = require('../model/sessions.js');
+const layout = require('../templates/template.js');
 
 router.get('/', (req, res) => {
   const title = 'Log in to your account';

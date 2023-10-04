@@ -50,7 +50,6 @@ test('createEvent creates new event when given content, event_date & user_id', (
   const actual = helpers.countNumber();
 
   assert.equal(expected, actual);
-
 });
 
 test('deleteEvent deletes event when given event id', () => {
@@ -63,4 +62,4 @@ test('deleteEvent deletes event when given event id', () => {
   const actual = helpers.countNumber();
 
   assert.equal(expected, actual);
-})
+});
