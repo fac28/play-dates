@@ -4,12 +4,11 @@ const staticHandler = express.static('public');
 const bodyParser = require('body-parser');
 const cookieParser = require('cookie-parser');
 
-// const body = express.urlencoded({ extended: false });
 const cookies = cookieParser(process.env.COOKIE_SECRET);
 
 const app = express();
 const homeRoutes = require('./routes/home');
-const formRoutes = require('./routes/form');
+const formRoutes = require('./routes/form-route');
 const signupRoutes = require('./routes/sign-up');
 const loginRoutes = require('./routes/log-in');
 
