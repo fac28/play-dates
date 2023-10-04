@@ -10,6 +10,7 @@ const app = express();
 const homeRoutes = require('./routes/home');
 const formRoutes = require('./routes/form-route');
 const signupRoutes = require('./routes/sign-up');
+const monthRoutes = require('./routes/month');
 const loginRoutes = require('./routes/log-in');
 
 //Middleware
@@ -27,6 +28,7 @@ app.use(cookies);
 app.use('/', homeRoutes);
 app.use('/form', formRoutes);
 app.use('/signup', signupRoutes);
+app.use('/month', monthRoutes);
 app.use('/login', loginRoutes);
 
 module.exports = app;
