@@ -50,10 +50,10 @@ const layout = (year, month, events) => {
                   <div class="flex-wrap">
                     ${events
                       .map((event) => {
-                        if (event.day === day) {
+                        if (event.day == day) {
                           return /*html*/ `
                             <form method="GET" action="/events/${event.id}">
-                              <button type="submit" class="button">${event.title}</button>
+                              <button type="submit" class="button">${event.content}</button>
                             </form>
                           `;
                         }
