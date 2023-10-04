@@ -8,15 +8,8 @@ const layout = (year, month, events) => {
     (_, index) => index + 1
   );
 
-  // debatable thresholds
-  let nextMonth = `/month/${month + 1}`;
-  if (month >= 11) {
-    nextMonth = `/month/${month - 11}`;
-  }
-  let lastMonth = `/month/${month - 1}`;
-  if (month <= 0) {
-    lastMonth = `/month/${month + 11}`;
-  }
+  let nextMonth = `/month/${(month % 12) + 1}`;
+  let lastMonth = `/month/${(month - 1 + 12) % 12 + 1}`;
 
   return /*html*/ `
     <!doctype html>
