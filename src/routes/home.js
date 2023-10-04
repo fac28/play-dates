@@ -16,7 +16,9 @@ router.get('/', (req, res) => {
 
     const sid = req.signedCookies.sid;
     const active_session = session.getSession(sid);
-
+    if (!active_session) {
+      return res.redirect('/login');
+    }
     // remove for production: set user_id to be 1 if active_session is undefined
     const user_id = active_session ? active_session.user_id : 1;
     const all_events = events.listEventsByMonth(user_id, month);

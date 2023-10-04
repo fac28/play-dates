@@ -20,6 +20,9 @@ router.get('/:month', (req, res) => {
     const user_id = active_session ? active_session.user_id : 1;
 
     const all_events = events.listEventsByMonth(user_id, month);
+    if (!active_session) {
+      return res.redirect('/login');
+    }
     console.log(all_events);
     res.send(layout(year, month, all_events));
   } catch (error) {
