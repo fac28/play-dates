@@ -77,6 +77,22 @@ h1 {
   text-align: center;
 }
 
+.off-set {
+  margin-right: 170px
+}
+
+.off-set-1 {
+  margin-right: 140px
+}
+
+
+.input-center {
+  width: 30%;
+  margin: 0 auto;
+  text-align: center;
+
+}
+
 .margin-top-sm {
   margin-top: 1rem;
 }
@@ -93,6 +109,15 @@ h1 {
   cursor: pointer;
   text-align: center;
   box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;}
+
+  .block {
+    display: block;
+  }
+
+  .link {
+    color: #000;
+    font-style: italic;
+  }
 /*------------------------------------*\
 Components
 \*------------------------------------*/

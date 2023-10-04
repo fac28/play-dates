@@ -5,25 +5,10 @@ const router = express.Router();
 const bcrypt = require('bcryptjs');
 const { getUserByEmail } = require('../model/users.js');
 const { createSession } = require('../model/sessions.js');
+const logInTemplate = require('../templates/log-in-template.js');
 
 router.get('/', (req, res) => {
-  const title = 'Log in to your account';
-  const content = /*html*/ `
-    <div class="Cover">
-      <h1>${title}</h1>
-      <form method="POST" class="Row">
-        <div class="Stack" style="--gap: 0.25rem">
-          <label for="email">email</label>
-          <input type="email" id="email" name="email" required>
-        </div>
-        <div class="Stack" style="--gap: 0.25rem">
-          <label for="password">password</label>
-          <input type="password" id="password" name="password" required>
-        </div>
-        <button class="Button">Log in</button>
-      </form>
-    </div>
-  `;
+  const content = logInTemplate();
   res.send(content);
 });
 
