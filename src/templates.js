@@ -1,7 +1,3 @@
-// Templates
-
-module.exports = { layout };
-
 function layout({ title, content }) {
   return /*html*/ `
     <!doctype html>
@@ -19,3 +15,5 @@ function layout({ title, content }) {
     </html>
   `;
 }
+
+module.exports = layout;

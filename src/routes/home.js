@@ -12,12 +12,22 @@ router.get('/', (req, res) => {
     const events = [
       {
         id: 1,
-        day: 24,
+        day: 1,
         title: 'Cook-a-thon',
       },
       {
         id: 2,
-        day: 15,
+        day: 1,
+        title: 'Bike race',
+      },
+      {
+        id: 3,
+        day: 2,
+        title: 'Bike race',
+      },
+      {
+        id: 4,
+        day: 6,
         title: 'Bike race',
       },
     ];
