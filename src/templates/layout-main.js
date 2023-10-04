@@ -63,8 +63,8 @@ const layout = (year, month, events) => {
                     .map((event) => {
                       if (event.day == day) {
                         return /*html*/ `
-                          <form method="GET" action="/events/${event.id}">
-                            <button type="submit" class="button">${event.content}</button>
+                          <form method="POST" action="/delete/${event.id}">
+                            <button type="submit" class="button">${event.content} -</button>
                           </form>
                         `;
                       }

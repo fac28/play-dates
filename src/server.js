@@ -13,6 +13,7 @@ const signupRoutes = require('./routes/sign-up');
 const monthRoutes = require('./routes/month');
 const loginRoutes = require('./routes/log-in');
 const logoutRoutes = require('./routes/logout');
+const deleteRoutes = require('./routes/delete');
 
 //Middleware
 app.use(bodyParser.urlencoded({ extended: false }));
@@ -32,5 +33,6 @@ app.use('/signup', signupRoutes);
 app.use('/month', monthRoutes);
 app.use('/login', loginRoutes);
 app.use('/logout', logoutRoutes);
+app.use('/delete', deleteRoutes);
 
 module.exports = app;
