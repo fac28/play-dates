@@ -14,7 +14,7 @@ const logoutRoutes = require('./routes/logout');
 
 //Middleware
 app.use(bodyParser.urlencoded({ extended: false }));
-app.use(cookieParser('burger'));
+app.use(cookieParser(process.env.COOKIE_SECRET));
 app.use(staticHandler);
 
 app.use((req, res, next) => {
