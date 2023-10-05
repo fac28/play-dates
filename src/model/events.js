@@ -18,6 +18,7 @@ function listEvents(user_id) {
 
 const select_events_by_month = db.prepare(/*sql*/ `
   SELECT 
+    id,
     content, 
     event_date,
     strftime('%d', event_date) AS day,
@@ -44,11 +45,13 @@ function createEvent(content, event_date, user_id) {
 }
 
 const remove_event = db.prepare(/*sql*/ `
-  DELETE FROM events WHERE id = ?
+  DELETE FROM events 
+  WHERE id = $id
+  AND user_id = $user_id
 `);
 
-function deleteEvent(id) {
-  return remove_event.run(id);
+function deleteEvent(id, user_id) {
+  return remove_event.run({ id, user_id });
 }
 
 module.exports = { listEvents, listEventsByMonth, createEvent, deleteEvent };
