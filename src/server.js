@@ -1,9 +1,36 @@
 //Server
-const express = require("express");
-const home = require("./routes/home.js");
+const express = require('express');
+const staticHandler = express.static('public');
+const bodyParser = require('body-parser');
+const cookieParser = require('cookie-parser');
 
-const server = express();
+const app = express();
+const homeRoutes = require('./routes/home');
+const formRoutes = require('./routes/form-route');
+const signupRoutes = require('./routes/sign-up');
+const monthRoutes = require('./routes/month');
+const loginRoutes = require('./routes/log-in');
+const logoutRoutes = require('./routes/logout');
+const deleteRoutes = require('./routes/delete');
 
-server.get("/", home.get);
+//Middleware
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(cookieParser(process.env.COOKIE_SECRET));
+app.use(staticHandler);
 
-module.exports = server;
+app.use((req, res, next) => {
+  const time = new Date().toLocaleTimeString('en-GB');
+  console.log(`${time} ${req.method} ${req.url}`);
+  next();
+});
+
+//Routes (need refactor)
+app.use('/', homeRoutes);
+app.use('/form', formRoutes);
+app.use('/signup', signupRoutes);
+app.use('/month', monthRoutes);
+app.use('/login', loginRoutes);
+app.use('/logout', logoutRoutes);
+app.use('/delete', deleteRoutes);
+
+module.exports = app;

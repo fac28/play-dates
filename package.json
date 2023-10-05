@@ -7,20 +7,25 @@
     "dev": "DB_FILE=db.sqlite COOKIE_SECRET=abc nodemon src/index.js",
     "seed": "DB_FILE=db.sqlite node src/database/seed.js",
     "test": "DB_FILE=test.sqlite COOKIE_SECRET=abc node --test",
-    "start": "node src/index.js"
+    "start":  "node src/index.js",
+    "lint": "eslint ."
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "bcrypt": "^5.1.1",
+    "bcryptjs": "^2.4.3",
     "better-sqlite3": "^8.7.0",
+    "body-parser": "^1.20.2",
     "cookie-parser": "^1.4.6",
     "express": "^4.18.2"
   },
   "devDependencies": {
     "@flydotio/dockerfile": "^0.4.10",
     "eslint": "^8.50.0",
+    "eslint-config-kentcdodds": "^20.5.0",
+    "eslint-config-prettier": "^9.0.0",
+    "eslint-plugin-prettier": "^5.0.0",
     "nodemon": "^3.0.1",
     "prettier": "^3.0.3"
   }
