@@ -4,12 +4,12 @@ BEGIN;
 
 INSERT INTO users VALUES
   (1, 'a@example.com', '$2a$12$A74tKw96m82AEZpJrIEQxecZGscKayJD/hD5/I6DuqKEJoQlAlNYO', '2023-10-10 00:00:00'),
-  (2, 'b@example.com', '$2a$12$o2NP8ykiki.T11qRQOCnBeX68PhwXHprM/hxHkbAfqotWo2XT.vdW', '2023-10-10 00:00:00'),
-  (3, 'c@example.com', '$2a$12$8HIQ9kqN0brBUfDigfSfB.9BlSsICw4LQ/tiw4U/zMW5QWtuTqMG6', '2023-10-10 00:00:00'),
-  (4, 'd@example.com', '$2a$12$vpUb03L0WVHMfrHducL2SumogekzuPfh9Ych0Il8Zkt5Baqch7QZq', '2023-10-10 00:00:00'),
-  (5, 'e@example.com', '$2a$12$4luxIrDKiU.bpasgzWuRwurBeGX8JNc7Q.taioE6nP3ZUGsN8cH2i', '2023-10-10 00:00:00'),
-  (6, 'f@example.com', '$2a$12$.nvgl/CiZLYqnf6zz4Iq4OUGEN72OmArjhz6j5BCyKQz6i9TCDBfS', '2023-10-10 00:00:00'),
-  (7, 'g@example.com', '$2a$12$fNhJ0RA8nAK.FVbYARXr7e8pMpR8hgLl11xkBpRdIyubrgapb6NeK', '2023-10-10 00:00:00')
+  (2, 'b@example.com', '$2a$12$A74tKw96m82AEZpJrIEQxecZGscKayJD/hD5/I6DuqKEJoQlAlNYO', '2023-10-10 00:00:00'),
+  (3, 'c@example.com', '$2a$12$A74tKw96m82AEZpJrIEQxecZGscKayJD/hD5/I6DuqKEJoQlAlNYO', '2023-10-10 00:00:00'),
+  (4, 'd@example.com', '$2a$12$A74tKw96m82AEZpJrIEQxecZGscKayJD/hD5/I6DuqKEJoQlAlNYO', '2023-10-10 00:00:00'),
+  (5, 'e@example.com', '$2a$12$A74tKw96m82AEZpJrIEQxecZGscKayJD/hD5/I6DuqKEJoQlAlNYO', '2023-10-10 00:00:00'),
+  (6, 'f@example.com', '$2a$12$A74tKw96m82AEZpJrIEQxecZGscKayJD/hD5/I6DuqKEJoQlAlNYO', '2023-10-10 00:00:00'),
+  (7, 'g@example.com', '$2a$12$A74tKw96m82AEZpJrIEQxecZGscKayJD/hD5/I6DuqKEJoQlAlNYO', '2023-10-10 00:00:00')
 ON CONFLICT DO NOTHING;
 
 INSERT INTO events VALUES
