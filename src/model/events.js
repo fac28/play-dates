@@ -47,7 +47,7 @@ function createEvent(content, event_date, user_id) {
 const remove_event = db.prepare(/*sql*/ `
   DELETE FROM events 
   WHERE id = $id
-  And user_id = $user_id
+  AND user_id = $user_id
 `);
 
 function deleteEvent(id, user_id) {

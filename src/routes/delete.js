@@ -6,12 +6,12 @@ const { deleteEvent } = require('../model/events');
 const { getSession } = require('../model/sessions');
 
 router.post('/:id', (req, res) => {
-  const id = req.params.id;
+  const id = parseInt(req.params.id, 10);
   const sid = req.signedCookies.sid;
   const session = getSession(sid);
   const user_id = session.user_id;
 
-  deleteEvent(user_id, id);
+  deleteEvent(id, user_id);
 
   res.redirect('../');
 });
