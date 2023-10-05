@@ -5,10 +5,17 @@ const express = require('express');
 const router = express.Router();
 const { createUser, getUserByEmail } = require('../model/users.js');
 const { createSession } = require('../model/sessions.js');
-const signUpTemplate = require('../templates/sign-up-template.js');
+// const signUpTemplate = require('../templates/sign-up-template.js');
+const authenticationTemplate = require('../templates/authentication-template.js');
+const signUpTemplate = authenticationTemplate(
+  'Sign up',
+  'Sign up',
+  'Already have an account?',
+  '/login'
+);
 
 router.get('/', (req, res) => {
-  const content = signUpTemplate();
+  const content = signUpTemplate;
   res.send(content);
 });
 
