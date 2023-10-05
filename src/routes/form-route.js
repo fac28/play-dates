@@ -8,13 +8,11 @@ const { inputForm } = require('../templates/form-template.js');
 
 const currentDate = new Date();
 const currentYear = currentDate.getFullYear();
-const year = currentYear;
 const currentMonth = currentDate.getMonth();
-const month = currentMonth;
 
 router.get('/', (req, res) => {
   const events = listEvents(req.params.user_id);
-  const body = inputForm(year, month, events);
+  const body = inputForm(currentYear, currentMonth, events);
   res.send(body);
 });
 
@@ -24,7 +22,8 @@ router.post('/', (req, res) => {
   const session = getSession(sid);
   const user_id = session.user_id;
   createEvent(content, event_date, user_id);
-  res.redirect('/');
+  // redirect to this month's calendar
+  res.redirect(`/month/${currentMonth}`);
 });
 
 module.exports = router;

@@ -17,7 +17,7 @@ function inputForm(year, month, events) {
     <link rel="stylesheet" href="normalize.css">
     <link rel="stylesheet" href="styles.css">
     <link href="https://fonts.googleapis.com/css?family=Raleway:500|Vollkorn:400i" rel="stylesheet">
-    <title>Play Dates</title>    
+    <title>Play Dates</title>
     </head>
     <body>
         <header class="header">
@@ -45,10 +45,10 @@ function inputForm(year, month, events) {
           <h2 class="center margin-top-md">Add an event</h2>
           <form method="POST" class="margin-top-sm">
             <input type="text" name="content" aria-label="your event">
-            <input name="event_date" type="date">
+            <input name="event_date" type="date" min="2023-01-01" max="2023-12-31">
             <button class="button">Submit</button>
           </form>
-        </div>  
+        </div>
         <div class="calendar">
           ${daysOfMonth
             .map(
@@ -69,7 +69,7 @@ function inputForm(year, month, events) {
                       return '';
                     })
                     .join('')}
-                </div>  
+                </div>
               </div>
             `
             )
