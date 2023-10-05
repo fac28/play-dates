@@ -5,10 +5,18 @@ const router = express.Router();
 const bcrypt = require('bcryptjs');
 const { getUserByEmail } = require('../model/users.js');
 const { createSession } = require('../model/sessions.js');
-const logInTemplate = require('../templates/log-in-template.js');
+// const logInTemplate = require('../templates/log-in-template.js');
+const authenticationTemplate = require('../templates/authentication-template.js');
+
+const logInTemplate = authenticationTemplate(
+  'Log in',
+  'Log in',
+  "Don't have an account yet?",
+  '/signup'
+);
 
 router.get('/', (req, res) => {
-  const content = logInTemplate();
+  const content = logInTemplate;
   res.send(content);
 });
 

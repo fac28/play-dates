@@ -7,6 +7,7 @@ const partners = require('../model/partners');
 const layout = require('../templates/layout-main');
 const session = require('../model/sessions');
 
+// eslint-disable-next-line consistent-return
 router.get('/', (req, res) => {
   try {
     const sid = req.signedCookies.sid;
@@ -22,7 +23,6 @@ router.get('/', (req, res) => {
     const usersEvents = events.listEventsByMonth(user_id, month);
     const partnersEvents = partners.listPartnersEvents(user_id, month);
     const all_events = usersEvents.concat(partnersEvents);
-    console.log(all_events);
     return res.send(layout(year, month, all_events));
   } catch (error) {
     console.error('Error with route:', error.message);
